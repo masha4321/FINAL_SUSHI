@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Identity;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SushiEShop.Web</title>
+    <link rel="stylesheet" href="~/css/Minty.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SushiEShop.Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a asp-area="guest" asp-action="Index" asp-controller="Home" class="nav-link active">
+                                Home
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        @if(this.User.IsInRole("Admin")){
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Admin" asp-action="Index" asp-controller="Category">Manage Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Admin" asp-action="Index" asp-controller="Product">Manage Products</a>
+                            </li>
+                        }
+                        
+                        @if (this.User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Guest" asp-action="Index" asp-controller="Home">Order Here</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Guest" asp-action="AboutUs" asp-controller="Home">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Guest" asp-action="ContactUs" asp-controller="Home">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Client" asp-action="Index" asp-controller="Cart">Cart</a>
+                            </li>
+                        }
+                        else{
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Guest" asp-action="Index" asp-controller="Home">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Guest" asp-action="AboutUs" asp-controller="Home">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Guest" asp-action="ContactUs" asp-controller="Home">Contact Us</a>
+                            </li>
+                        }
+                            
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - SushiEShop.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tiny.cloud/1/nnk6nuovzc7zwr4g3uov0b67obtgbyqp0wi0l0fu944mrgsa/tinymce/6/plugins.min.js" referrerpolicy="origin"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

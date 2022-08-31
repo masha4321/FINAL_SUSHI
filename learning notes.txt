@@ -1,0 +1,21 @@
+Database=aspnet-EShopping.Web-F24F6CB4-F22F-453F-97C4-D04BBD73C87E
+
+aspnet-SushiWebSite-30344360-6374-4E24-AE4A-33F0BE519644
+
+create new projects - .Web,
+diff: choose "authentication: individual XX" when creating .Web new proj.
+create other new projects - Models, DataAccess, Utility
+create classes. refer to video
+in .Web proj, as the startup proj, delete the auto created "Data" folder.
+ensure the connectionstrings is defined in appsettings.json in .Web folder and the Program.cs in .Web has this sentence to reference to the .DataAccess folder:
+	builder.Services.AddDbContext...
+add-migration XXX and chose ".DataAccess" as default project, for errors, "add reference" to the .DataAccess class
+diff: since i tried multiple times, use a diff DB name in connectionstrings each time in appsettings.json in /Web proj.
+
+Scaffolding folders under .Web: (by adding area after the 2srt one is created)
+Admin, Client, Guest (diff), and set Guest as default role when open home url
+
+
+move Homecontroller and view files to Guest folder, refer to video.
+
+update search bar setting in header by using bootswatch.com code
