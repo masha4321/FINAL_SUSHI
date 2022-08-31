@@ -1,2 +1,2 @@
 # FINAL_SUSHI
-New Git for the Sushi Rstaurant project
+New Git for the Sushi Rwstaurant project
