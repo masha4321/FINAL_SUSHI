@@ -2,10 +2,17 @@
 
 
 <div class="row pb-4">
+    @if (this.User.Identity.IsAuthenticated)
+    {
+        <h1>Order</h1>
+    }
+    else
+    {
+        <h1>Menu</h1>
+    }
     @foreach (var item in @Model)
     {
-        @if (this.User.Identity.IsAuthenticated){
-            <h1>Order</h1>
+        @if (this.User.Identity.IsAuthenticated){            
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
                 <div class="card-body">
@@ -15,8 +22,7 @@
                 </div>
             </div>
         }
-        else{
-            <h1>Menu</h1>
+        else{            
             <h3>Login or Register to Place Order</h3>
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
