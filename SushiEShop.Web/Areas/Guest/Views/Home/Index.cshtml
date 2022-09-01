@@ -4,6 +4,7 @@
 <div class="row pb-4">
     @foreach (var item in @Model)
     {
+<<<<<<< Updated upstream
         @if (this.User.Identity.IsAuthenticated){
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
@@ -24,7 +25,135 @@
                     <p class="card-text">@item.Description</p>
                 </div>
             </div>
+=======
+        @if(item.CategoryId==1){
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div class="card card-container" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap" width="183" height="275"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">Price: @item.Price.ToString("0.00")</p> <price></price>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <!--<p class="card-text">Price: @item.Price.ToString("0.00")</p>-->
+                        <!--<a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>-->
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                </div>
+            }
         }
         
     }
 </div>
+<div class="row pb-4">
+    <h3>Mains</h3>
+    @foreach (var item in @Model)
+    {
+        @if (item.CategoryId == 2)
+        {
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap" width="183" height="275"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">Price: @item.Price.ToString("0.00")</p>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <!--<p class="card-text">Price: @item.Price.ToString("0.00")</p>-->
+                        <!--<a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>-->
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                </div>
+            }
+        }
+
+    }
+</div>
+<div class="row pb-4">
+    <h3>Deserts</h3>
+    @foreach (var item in @Model)
+    {
+        @if (item.CategoryId == 3)
+        {
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap" width="183" height="275"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">Price: @item.Price.ToString("0.00")</p>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <!--<p class="card-text">Price: @item.Price.ToString("0.00")</p>-->
+                        <!--<a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>-->
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                </div>
+            }
+>>>>>>> Stashed changes
+        }
+        
+    }
+</div>
+<<<<<<< Updated upstream
+=======
+<div class="row pb-4">
+    <h3>Drinks</h3>
+    @foreach (var item in @Model)
+    {
+        @if (item.CategoryId == 4)
+        {
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap" width="183" height="275"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">Price: @item.Price.ToString("0.00")</p>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <!--<p class="card-text">Price: @item.Price.ToString("0.00")</p>-->
+                        <!--<a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>-->
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                </div>
+            }
+        }
+
+    }
+</div>
+>>>>>>> Stashed changes
