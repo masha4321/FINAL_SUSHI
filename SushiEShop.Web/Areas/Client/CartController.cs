@@ -17,6 +17,10 @@ namespace SushiEShop.Web.Areas.Client
             _context = context;
         }
 
+        public IActionResult Checkout()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();
@@ -51,7 +55,7 @@ namespace SushiEShop.Web.Areas.Client
 
             TempData["Success"] = "The product has been added!";
 
-             //return Redirect(Request.Headers["Referer"].ToString());
+            //return Redirect(Request.Headers["Referer"].ToString());
             return RedirectToAction("Index");
         }
 

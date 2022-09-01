@@ -40,7 +40,7 @@ else{
             else
             {
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap" ></img>
                     <div class="card-body">
                         <h5 class="card-title">@item.Name</h5>
                         <!--<p class="card-text">Price: @item.Price.ToString("0.00")</p>-->
@@ -128,9 +128,14 @@ else{
             @if (this.User.Identity.IsAuthenticated)
             {
                 <div class="card" style="width: 18rem;">
+<<<<<<< Updated upstream
                     <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+=======
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"width="183" height="275"></img>
+>>>>>>> Stashed changes
                     <div class="card-body">
                         <h5 class="card-title">@item.Name</h5>
+                        <price></price>
                         <p class="card-text">Price: @item.Price.ToString("0.00")</p>
                         <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
                     </div>
