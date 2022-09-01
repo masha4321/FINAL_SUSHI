@@ -29,10 +29,7 @@ namespace SushiEShop.Web.Areas.Client
 
             return View(cartVM);
         }
-        public IActionResult Checkout()
-        {
-            return View();
-        }
+
         public async Task<IActionResult> Add(int id)
         {
             Product product = await _context.Products.FindAsync(id);
