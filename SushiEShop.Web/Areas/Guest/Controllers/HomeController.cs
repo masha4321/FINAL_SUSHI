@@ -29,7 +29,39 @@ namespace SushiEShop.Web.Areas.Guest.Controllers
            return View(products);
             return View(); 
         }
-       
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Entrees()
+        {
+            IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            return View(products);
+            return View();
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Mains()
+        {
+            IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            return View(products);
+            return View();
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Deserts()
+        {
+            IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            return View(products);
+            return View();
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Drinks()
+        {
+            IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            return View(products);
+            return View();
+        }
+        [HttpGet]
         [HttpGet]
         public IActionResult Details(int? productId)
         {

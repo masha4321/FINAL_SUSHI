@@ -1,7 +1,36 @@
 ﻿@model IEnumerable<SushiEShop.Models.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
 
-
+<div class="text-center">
+    <h1 class="display-4">Welcome to Sushi Ginyu Tokusentai Restaurant!!!</h1>
+    <p>We are the Ginyu Force, the strongest warriors in Lord Frieza’s Army! It is our great pleasure to announce Ginyu Tokusentai Sushi's first franchise on Planet Earth, debuting in the lovely humid city of Montreal. After losing our Namekian location to an unknown disaster, we decided that Earth would be a wonderful place to share our love of affordable and delicious sushi. For centuries we have dutifully served our Master in battle. We look forward to providing this same level of service to our French-Canadian brothers, while maintaining a deep-rooted commitment to customer satisfaction. </p>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/_McdW78cxs8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+@if (this.User.Identity.IsAuthenticated)
+{
+    <h1>Order</h1>
+}
+else{
+    <h3>Login or Register to Place Order</h3>
+}
+<div class="text-center">
+    <li class="nav-item m-2">
+        <a class="nav-link" asp-area="Guest" asp-action="Entrees" asp-controller="Home">Entrees</a>
+    </li>
+    <li class="nav-item m-2">
+        <a class="nav-link" asp-area="Guest" asp-action="Mains" asp-controller="Home">Mains</a>
+    </li>
+    <li class="nav-item m-2">
+        <a class="nav-link" asp-area="Guest" asp-action="Deserts" asp-controller="Home">Deserts</a>
+    </li>
+    <li class="nav-item m-2">
+        <a class="nav-link" asp-area="Guest" asp-action="Drinks" asp-controller="Home">Drinks</a>
+    </li>
+</div>
 <div class="row pb-4">
+<<<<<<< Updated upstream
     @if (this.User.Identity.IsAuthenticated)
     {
         <h1>Order</h1>
@@ -33,7 +62,135 @@
                     <p class="card-text">@item.Description</p>
                 </div>
             </div>
+=======
+       <h3>Entrees</h3>
+    @foreach (var item in @Model)
+    {
+        @if(item.CategoryId==1){
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">Price: @item.Price.ToString("0.00")</p>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <!--<p class="card-text">Price: @item.Price.ToString("0.00")</p>-->
+                        <!--<a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>-->
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                </div>
+            }
+>>>>>>> Stashed changes
         }
         
+    }
+</div>
+<div class="row pb-4">
+    <h3>Mains</h3>
+    @foreach (var item in @Model)
+    {
+        @if (item.CategoryId == 2)
+        {
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">Price: @item.Price.ToString("0.00")</p>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <!--<p class="card-text">Price: @item.Price.ToString("0.00")</p>-->
+                        <!--<a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>-->
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                </div>
+            }
+        }
+
+    }
+</div>
+<div class="row pb-4">
+    <h3>Deserts</h3>
+    @foreach (var item in @Model)
+    {
+        @if (item.CategoryId == 3)
+        {
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">Price: @item.Price.ToString("0.00")</p>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <!--<p class="card-text">Price: @item.Price.ToString("0.00")</p>-->
+                        <!--<a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>-->
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                </div>
+            }
+        }
+
+    }
+</div>
+<div class="row pb-4">
+    <h3>Drinks</h3>
+    @foreach (var item in @Model)
+    {
+        @if (item.CategoryId == 4)
+        {
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">Price: @item.Price.ToString("0.00")</p>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <!--<p class="card-text">Price: @item.Price.ToString("0.00")</p>-->
+                        <!--<a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>-->
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                </div>
+            }
+        }
+
     }
 </div>
