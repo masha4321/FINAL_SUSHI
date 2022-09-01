@@ -7,7 +7,7 @@
 else{
     <h3>Login or Register to Place Order</h3>
 }
-<div class="text-center">
+<div class="text-center list-menu">
     <li class="nav-item m-2">
         <a class="nav-link" asp-area="Guest" asp-action="Entrees" asp-controller="Home">Entrees</a>
     </li>
@@ -28,12 +28,12 @@ else{
         @if(item.CategoryId==1){
             @if (this.User.Identity.IsAuthenticated)
             {
-                <div class="card" style="width: 18rem;">
+                <div class="card card-container" style="width: 18rem;">
                     <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
                     <div class="card-body">
                         <h5 class="card-title">@item.Name</h5>
                         <p class="card-text">Price: @item.Price.ToString("0.00")</p>
-                        <a asp-action="Details" asp-controller="Index" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
                     </div>
                 </div>
             }

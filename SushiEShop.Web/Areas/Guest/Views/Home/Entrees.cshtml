@@ -18,7 +18,7 @@ else{
         @if(item.CategoryId==1){
             @if (this.User.Identity.IsAuthenticated)
             {
-                <div class="card" style="width: 18rem;">
+                <div class="card card-container" style="width: 18rem;">
                     <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap"></img>
                     <div class="card-body">
                         <h5 class="card-title">@item.Name</h5>

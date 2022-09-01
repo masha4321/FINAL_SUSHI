@@ -1,0 +1,10 @@
+﻿.list-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    border: 1px solid
+}
+
+.card-container {
+
+}
