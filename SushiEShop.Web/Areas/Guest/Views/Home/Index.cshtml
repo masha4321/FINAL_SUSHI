@@ -33,7 +33,7 @@ else{
                     <div class="card-body">
                         <h5 class="card-title">@item.Name</h5>
                         <p class="card-text">Price: @item.Price.ToString("0.00")</p>
-                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
+                        <a asp-action="Details" asp-controller="Index" asp-route-productId="@item.Id" class="btn btn-primary">Details</a>
                     </div>
                 </div>
             }
